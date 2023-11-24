@@ -38,7 +38,7 @@ const onHeaderNames = (data) => (headerNames.value = data);
         <h1>Referencias</h1>
         
 
-        <Table title="" path-api="/products" @HeaderNames="onHeaderNames" @onRowSelect="RowSelect" :dataMod="dataMod" />
+        <Table title="" path-api="" @HeaderNames="onHeaderNames" @onRowSelect="RowSelect" :dataMod="dataMod" />
         
     </div>
 </template>

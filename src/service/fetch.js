@@ -9,7 +9,8 @@ export async function useFetch(Endpoint, options = {}, auth = true) {
     let base = `http://164.90.146.196:81`; // remote
     //let base = `http://agroonline_end.test`;  //local
     let api = `/api/v1`; 
-    let baseUrl = `${base}${api}${Endpoint}`;
+    //let baseUrl = `${base}${api}${Endpoint}`;
+    let baseUrl = `https://raw.githubusercontent.com/byepesg/TransformaMetrics/main/src/data/JSON.json`;
     console.info("Funcion Fetch : "+baseUrl) 
     
    
@@ -22,7 +23,7 @@ export async function useFetch(Endpoint, options = {}, auth = true) {
     
     if (auth) {
         
-        options['headers']['Authorization'] = 'Bearer ' + sessionStorage.getItem('accessSessionToken');
+        //options['headers']['Authorization'] = 'Bearer ' + sessionStorage.getItem('accessSessionToken');
         
     }
     

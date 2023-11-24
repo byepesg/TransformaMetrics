@@ -145,7 +145,7 @@ async function fetchInfoAndUpdateValue() {
         tableData.value = ref([]);
         headerNames.value = ref([]);
         loading.value = false;
-        console.error('Error fetching cut data:', error);
+        console.error('Error fetching data:', error);
     }
 }
 
