@@ -1,12 +1,16 @@
 
-# Basil Web Application(vue)
+# TransformaMetrics
 
-This is the frontend for basil farm 
+Authors: Diego Rubiano and Sebastián Yepes
 
-Firstly:
+This is the frontend for transformaMetrics
 
-$npm run install
+Firstly for the package JSON:
+
+$npm install
 
 Development:
-$npm install
-$npm run dev
+
+    $npm run dev
+Production:
+    $npm run build
