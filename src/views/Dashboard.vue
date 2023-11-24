@@ -161,7 +161,7 @@ const setChart = () => {
                 label: 'My dataset'
             }
         ],
-        labels: ['Indigo', 'Purple', 'Teal', 'Orange']
+        labels: ['Local', 'Regional', 'Nacional', 'Internacional']
     };
 
     polarOptions.value = {
@@ -401,28 +401,28 @@ watch(
         </div>
         <div class="col-12 xl:col-6">
             <div class="card flex flex-column align-items-center">
-                <h5 class="text-left w-full">Autores</h5>
+                <h5 class="text-left w-full">Cantidad de Autores</h5>
                 <Chart type="pie" :data="pieData" :options="pieOptions"></Chart>
             </div>
         </div>
 
         <div class="col-12 xl:col-6">
             <div class="card flex flex-column align-items-center">
-                <h5 class="text-left w-full">Doughnut Chart</h5>
+                <h5 class="text-left w-full">Estado del arte</h5>
                 <Chart type="doughnut" :data="pieData" :options="pieOptions"></Chart>
             </div>
         </div>
 
         <div class="col-12 xl:col-6">
             <div class="card">
-                <h5>Linear Chart</h5>
+                <h5>Evolución con version anterior</h5>
                 <Chart type="line" :data="lineData" :options="lineOptions"></Chart>
             </div>
         </div>
 
         <div class="col-12 xl:col-6">
             <div class="card flex flex-column align-items-center">
-                <h5 class="text-left w-full">Polar Area Chart</h5>
+                <h5 class="text-left w-full">Estado del arte</h5>
                 <Chart type="polarArea" :data="polarData" :options="polarOptions"></Chart>
             </div>
         </div>
