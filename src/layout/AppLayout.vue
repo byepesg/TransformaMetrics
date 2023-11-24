@@ -20,9 +20,9 @@ watch(isSidebarActive, (newVal) => {
 });
 
 onBeforeMount(() => {
-    if (!sessionStorage.getItem('accessSessionToken')) {
-        router.push('/auth/login');
-    }
+    //if (!sessionStorage.getItem('accessSessionToken')) {
+        //router.push('/auth/login');
+    //}
 });
 
 const containerClass = computed(() => {

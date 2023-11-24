@@ -394,7 +394,7 @@ watch(
             </div>
         </div>
         <div class="col-12 xl:col-6">
-            <div class="card">
+            <div class="card " >
                 <h5>Bibliografía por año</h5>
                 <Chart type="bar" :data="barData" :options="barOptions"></Chart>
             </div>

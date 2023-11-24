@@ -47,11 +47,7 @@ const router = createRouter({
                     name: 'formlayout',
                     component: () => import('@/views/uikit/FormLayout.vue')
                 },
-                {
-                    path: '/components/GenericComponet/:title',
-                    name: 'generictable',
-                    component: () => import('@/components/GenericComponet.vue')
-                },
+                
                 {
                     path: '/uikit/input',
                     name: 'input',

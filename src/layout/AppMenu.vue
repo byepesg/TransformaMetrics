@@ -27,7 +27,7 @@ onBeforeMount(() => {
 
 async function fetchInfoAndUpdateValue() {
     try {
-        model.value = await menuService.getMenu();
+        //model.value = await menuService.getMenu();
     } catch (error) {
         console.error('Error:', error);
     }

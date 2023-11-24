@@ -10,11 +10,6 @@ const requestData = {
       "short_name": "JCY",
       "slug": "909090"
     };
-const newProduct = async () => {
-      await postProducts(requestData,"/products");
-      console.log('Datos:', data);
-      console.log('Error:', error);
-    };
 const listRowSelect = ref([]);
 
 const dataMod = ref({});
@@ -38,7 +33,7 @@ const onHeaderNames = (data) => (headerNames.value = data);
         <h1>Referencias</h1>
         
 
-        <Table title="" path-api="https://raw.githubusercontent.com/byepesg/TransformaMetrics/main/src/data/JSON.json" @HeaderNames="onHeaderNames" @onRowSelect="RowSelect" :dataMod="dataMod" />
+        <Table title="Aquí podrás elegir las referencias que quieres ver" path-api="https://raw.githubusercontent.com/byepesg/TransformaMetrics/main/src/data/JSON.json" @HeaderNames="onHeaderNames" @onRowSelect="RowSelect" :dataMod="dataMod" />
         
     </div>
 </template>

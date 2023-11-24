@@ -50,6 +50,7 @@ export default {
     },
     methods: {
         onSubmit() {
+            /*
             if (this.v$.form.email.$invalid) {
                 this.message.push({ severity: 'error', detail: 'Error E-Mail', content: 'E-Mail Invalid', id: count.value++, life: 3000 });
             }
@@ -59,6 +60,8 @@ export default {
             if (this.v$.form.$invalid)
                 return;
             this.fetchInfoPostLogin(this.form);
+            */
+            this.router.push('/applayout');
             
         },
         async fetchInfoPostLogin(data) {
