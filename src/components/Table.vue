@@ -114,10 +114,10 @@ const props = defineProps({
 async function fetchInfoAndUpdateValue() {
     try {
         let data = await tableService.getInfo(props.pathApi);
-        const path = props.jsonDataPath.split('.');
+        /*const path = props.jsonDataPath.split('.');
         path.forEach((element) => {
             data = data[element];
-        });
+        });*/
         tableData.value = data;
         console.log(data)
         let mappedArray1 = [];

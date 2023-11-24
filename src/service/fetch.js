@@ -5,12 +5,14 @@ export async function useFetch(Endpoint, options = {}, auth = true) {
     options['headers']['Content-Type'] = 'application/json';
     options['headers']['Accept'] = 'application/json';
     options['headers']['Access-Control-Allow-Origin'] = '*';
+    options['headers']['application/vnd.github.v3.raw'] = '*';
 
-    let base = `http://164.90.146.196:81`; // remote
-    //let base = `http://agroonline_end.test`;  //local
-    let api = `/api/v1`; 
+    
+    
+    //let api = `/api/v1`; 
     //let baseUrl = `${base}${api}${Endpoint}`;
-    let baseUrl = `https://raw.githubusercontent.com/byepesg/TransformaMetrics/main/src/data/JSON.json`;
+    let baseUrl = `${Endpoint}`;
+    //let baseUrl = `https://raw.githubusercontent.com/byepesg/TransformaMetrics/main/src/data/JSON.json`;
     console.info("Funcion Fetch : "+baseUrl) 
     
    
