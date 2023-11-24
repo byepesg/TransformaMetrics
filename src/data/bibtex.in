@@ -1,0 +1,139 @@
+@article{autor1:2007,
+  author = {Autor1, Nombre1},
+  title = {Título del Artículo 1},
+  journal = {Revista A},
+  year = {2007},
+}
+
+@book{autor2:2011,
+  author = {Autor2, Nombre2},
+  title = {Título del Libro 2},
+  publisher = {Editorial B},
+  year = {2011},
+}
+
+@inproceedings{autor3:2018,
+  author = {Autor3, Nombre3},
+  title = {Título de la Conferencia 3},
+  booktitle = {Proceedings of the Conference C},
+  year = {2018},
+}
+
+@article{autor4:2013,
+  author = {Autor4, Nombre4},
+  title = {Título del Artículo 4},
+  journal = {Revista D},
+  year = {2013},
+}
+
+@book{autor5:2016,
+  author = {Autor5, Nombre5},
+  title = {Título del Libro 5},
+  publisher = {Editorial E},
+  year = {2016},
+}
+
+@inproceedings{autor6:2006,
+  author = {Autor6, Nombre6},
+  title = {Título de la Conferencia 6},
+  booktitle = {Proceedings of the Conference F},
+  year = {2006},
+}
+
+@article{autor7:2019,
+  author = {Autor7, Nombre7},
+  title = {Título del Artículo 7},
+  journal = {Revista G},
+  year = {2019},
+}
+
+@book{autor8:2010,
+  author = {Autor8, Nombre8},
+  title = {Título del Libro 8},
+  publisher = {Editorial H},
+  year = {2010},
+}
+
+@inproceedings{autor9:2014,
+  author = {Autor9, Nombre9},
+  title = {Título de la Conferencia 9},
+  booktitle = {Proceedings of the Conference I},
+  year = {2014},
+}
+
+@article{autor10:2005,
+  author = {Autor10, Nombre10},
+  title = {Título del Artículo 10},
+  journal = {Revista J},
+  year = {2005},
+}
+
+@book{autor11:2017,
+  author = {Autor11, Nombre11},
+  title = {Título del Libro 11},
+  publisher = {Editorial K},
+  year = {2017},
+}
+
+@inproceedings{autor12:2021,
+  author = {Autor12, Nombre12},
+  title = {Título de la Conferencia 12},
+  booktitle = {Proceedings of the Conference L},
+  year = {2021},
+}
+
+@article{autor13:2012,
+  author = {Autor13, Nombre13},
+  title = {Título del Artículo 13},
+  journal = {Revista M},
+  year = {2012},
+}
+
+@book{autor14:2008,
+  author = {Autor14, Nombre14},
+  title = {Título del Libro 14},
+  publisher = {Editorial N},
+  year = {2008},
+}
+
+@inproceedings{autor15:2015,
+  author = {Autor15, Nombre15},
+  title = {Título de la Conferencia 15},
+  booktitle = {Proceedings of the Conference O},
+  year = {2015},
+}
+
+@article{autor16:2010,
+  author = {Autor16, Nombre16},
+  title = {Título del Artículo 16},
+  journal = {Revista P},
+  year = {2010},
+}
+
+@book{autor17:2018,
+  author = {Autor17, Nombre17},
+  title = {Título del Libro 17},
+  publisher = {Editorial Q},
+  year = {2018},
+}
+
+@inproceedings{autor18:2006,
+  author = {Autor18, Nombre18},
+  title = {Título de la Conferencia 18},
+  booktitle = {Proceedings of the Conference R},
+  year = {2006},
+}
+
+@article{autor19:2011,
+  author = {Autor19, Nombre19},
+  title = {Título del Artículo 19},
+  journal = {Revista S},
+  year = {2011},
+}
+
+@book{autor20:2019,
+  author = {Autor20, Nombre20},
+  title = {Título del Libro 20},
+  publisher = {Editorial T},
+  year = {2019},
+}
