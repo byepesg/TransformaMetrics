@@ -113,7 +113,7 @@ const props = defineProps({
  */
 async function fetchInfoAndUpdateValue() {
     try {
-        alert(props.pathApi)
+        alert(props.path)
         let data = await tableService.getInfo(props.pathApi);
         /*const path = props.jsonDataPath.split('.');
         path.forEach((element) => {
