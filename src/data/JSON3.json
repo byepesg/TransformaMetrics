@@ -8,7 +8,9 @@
       "author2_gender": "female",
       "title": "Título del Artículo 1",
       "journal": "Revista A",
-      "year": 2001
+      "year": 2001,
+      "booktitle": null,
+      "publisher": null
     },
     {
       "type": "book",
@@ -19,7 +21,9 @@
       "author2_gender": "female",
       "title": "Título del Libro 2",
       "publisher": "Editorial B",
-      "year": 2012
+      "year": 2012,
+      "journal": null,
+      "booktitle": null
     },
     {
       "type": "inproceedings",
@@ -30,7 +34,9 @@
       "author2_gender": "female",
       "title": "Título de la Conferencia 3",
       "booktitle": "Proceedings of the Conference C",
-      "year": 2012
+      "year": 2012,
+      "journal": null,
+      "publisher": null
     },
     {
       "type": "article",
@@ -41,7 +47,9 @@
       "author2_gender": "female",
       "title": "Título del Artículo 4",
       "journal": "Revista D",
-      "year": 2013
+      "year": 2013,
+      "booktitle": null,
+      "publisher": null
     },
     {
       "type": "book",
@@ -52,7 +60,9 @@
       "author2_gender": "female",
       "title": "Título del Libro 5",
       "publisher": "Editorial E",
-      "year": 2016
+      "year": 2016,
+      "journal": null,
+      "booktitle": null
     },
     {
       "type": "inproceedings",
@@ -63,7 +73,9 @@
       "author2_gender": "female",
       "title": "Título de la Conferencia 6",
       "booktitle": "Proceedings of the Conference F",
-      "year": 2006
+      "year": 2006,
+      "journal": null,
+      "publisher": null
     },
     {
       "type": "article",
@@ -74,7 +86,9 @@
       "author2_gender": "female",
       "title": "Título del Artículo 7",
       "journal": "Revista G",
-      "year": 2019
+      "year": 2019,
+      "booktitle": null,
+      "publisher": null
     },
     {
       "type": "book",
@@ -85,7 +99,9 @@
       "author2_gender": "female",
       "title": "Título del Libro 8",
       "publisher": "Editorial H",
-      "year": 2010
+      "year": 2010,
+      "journal": null,
+      "booktitle": null
     },
     {
       "type": "inproceedings",
@@ -96,7 +112,9 @@
       "author2_gender": "female",
       "title": "Título de la Conferencia 9",
       "booktitle": "Proceedings of the Conference I",
-      "year": 2014
+      "year": 2014,
+      "journal": null,
+      "publisher": null
     },
     {
       "type": "article",
@@ -107,7 +125,9 @@
       "author2_gender": "female",
       "title": "Título del Artículo 10",
       "journal": "Revista J",
-      "year": 2005
+      "year": 2005,
+      "booktitle": null,
+      "publisher": null
     },
     {
       "type": "book",
@@ -118,7 +138,9 @@
       "author2_gender": "female",
       "title": "Título del Libro 11",
       "publisher": "Editorial K",
-      "year": 2017
+      "year": 2017,
+      "journal": null,
+      "booktitle": null
     },
     {
       "type": "inproceedings",
@@ -129,7 +151,9 @@
       "author2_gender": "female",
       "title": "Título de la Conferencia 12",
       "booktitle": "Proceedings of the Conference L",
-      "year": 2021
+      "year": 2021,
+      "journal": null,
+      "publisher": null
     },
     {
       "type": "article",
@@ -140,7 +164,9 @@
       "author2_gender": "female",
       "title": "Título del Artículo 13",
       "journal": "Revista M",
-      "year": 2012
+      "year": 2012,
+      "booktitle": null,
+      "publisher": null
     },
     {
       "type": "book",
@@ -151,7 +177,9 @@
       "author2_gender": "female",
       "title": "Título del Libro 14",
       "publisher": "Editorial N",
-      "year": 2008
+      "year": 2008,
+      "journal": null,
+      "booktitle": null
     },
     {
       "type": "inproceedings",
@@ -162,7 +190,9 @@
       "author2_gender": "female",
       "title": "Título de la Conferencia 15",
       "booktitle": "Proceedings of the Conference O",
-      "year": 2015
+      "year": 2015,
+      "journal": null,
+      "publisher": null
     },
     {
       "type": "article",
@@ -173,7 +203,9 @@
       "author2_gender": "female",
       "title": "Título del Artículo 16",
       "journal": "Revista P",
-      "year": 2010
+      "year": 2010,
+      "booktitle": null,
+      "publisher": null
     },
     {
       "type": "book",
@@ -184,7 +216,9 @@
       "author2_gender": "female",
       "title": "Título del Libro 17",
       "publisher": "Editorial Q",
-      "year": 2018
+      "year": 2018,
+      "journal": null,
+      "booktitle": null
     },
     {
       "type": "inproceedings",
@@ -195,7 +229,9 @@
       "author2_gender": "female",
       "title": "Título de la Conferencia 18",
       "booktitle": "Proceedings of the Conference R",
-      "year": 2006
+      "year": 2006,
+      "journal": null,
+      "publisher": null
     },
     {
       "type": "article",
@@ -206,7 +242,9 @@
       "author2_gender": "female",
       "title": "Título del Artículo 19",
       "journal": "Revista S",
-      "year": 2011
+      "year": 2011,
+      "booktitle": null,
+      "publisher": null
     },
     {
       "type": "book",
@@ -217,7 +255,9 @@
       "author2_gender": "female",
       "title": "Título del Libro 20",
       "publisher": "Editorial T",
-      "year": 2019
+      "year": 2019,
+      "journal": null,
+      "booktitle": null
     },
     {
       "type": "inproceedings",
@@ -228,7 +268,9 @@
       "author2_gender": "female",
       "title": "Título de la Conferencia 21",
       "booktitle": "Proceedings of the Conference U",
-      "year": 2009
+      "year": 2009,
+      "journal": null,
+      "publisher": null
     },
     {
       "type": "article",
@@ -239,7 +281,9 @@
       "author2_gender": "female",
       "title": "Título del Artículo 22",
       "journal": "Revista V",
-      "year": 2014
+      "year": 2014,
+      "booktitle": null,
+      "publisher": null
     },
     {
       "type": "book",
@@ -250,7 +294,9 @@
       "author2_gender": "female",
       "title": "Título del Libro 23",
       "publisher": "Editorial W",
-      "year": 2017
+      "year": 2017,
+      "journal": null,
+      "booktitle": null
     },
     {
       "type": "inproceedings",
@@ -261,7 +307,9 @@
       "author2_gender": "female",
       "title": "Título de la Conferencia 24",
       "booktitle": "Proceedings of the Conference X",
-      "year": 2012
+      "year": 2012,
+      "journal": null,
+      "publisher": null
     },
     {
       "type": "article",
@@ -272,7 +320,9 @@
       "author2_gender": "female",
       "title": "Título del Artículo 25",
       "journal": "Revista Y",
-      "year": 2010
+      "year": 2010,
+      "booktitle": null,
+      "publisher": null
     },
     {
       "type": "book",
@@ -283,7 +333,9 @@
       "author2_gender": "female",
       "title": "Título del Libro 26",
       "publisher": "Editorial Z",
-      "year": 2016
+      "year": 2016,
+      "journal": null,
+      "booktitle": null
     },
     {
       "type": "inproceedings",
@@ -294,7 +346,9 @@
       "author2_gender": "female",
       "title": "Título de la Conferencia 27",
       "booktitle": "Proceedings of the Conference AA",
-      "year": 2012
+      "year": 2012,
+      "journal": null,
+      "publisher": null
     }
   ]
   
