@@ -1,9 +1,13 @@
 <script setup>
-import { onMounted, ref, watch } from 'vue';
+import { onMounted, ref, watch,onBeforeMount } from 'vue';
 import ProductService from '@/service/ProductService';
 import { useLayout } from '@/layout/composables/layout';
+import { useFetch } from '@/service//fetch.js';
+import useUnitTypes from '@/composables/Product/UnitsType/unitTypeAPI.js'
+
 
 const { layoutConfig } = useLayout();
+
 let documentStyle = getComputedStyle(document.documentElement);
 let textColor = documentStyle.getPropertyValue('--text-color');
 let textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
@@ -21,6 +25,111 @@ const polarOptions = ref(null);
 const barOptions = ref(null);
 const radarOptions = ref(null);
 
+
+
+
+
+///////////////////////////////////////////////////
+const dataTotalReferences = ref();
+const getAllTotalReferences = async () => {
+    const { getAllUnitTypes,dataUnitTypes } = useUnitTypes();
+    await getAllUnitTypes("/total_references");
+    dataTotalReferences.value =dataUnitTypes.value.total_references
+    dataUnitTypes.value={}
+};
+///////////////////////////////////////////////////
+const mostUsedYear = ref();
+const mostUsedYearData = ref();
+const getMostUsedYear = async () => {
+    const { getAllUnitTypes,dataUnitTypes } = useUnitTypes();
+    await getAllUnitTypes("/most-used-year");
+    mostUsedYear.value = dataUnitTypes.value
+    mostUsedYearData.value = mostUsedYear.value.most_used_year
+    return mostUsedYearData
+
+}; 
+///////////////////////////////////////////////////
+const mostUsedJournal = ref(); 
+const mostUsedJournalData = ref();
+const mostUsedJournalFrequency = ref();
+const mostUsedEditorialData = ref();
+const mostUsedEditorialFrequency = ref();
+const getMostUsedJournal = async () => {
+    const { getAllUnitTypes,dataUnitTypes } = useUnitTypes();
+    await getAllUnitTypes("/most_used_journal");
+    mostUsedJournal.value = dataUnitTypes.value;
+    mostUsedJournalData.value = mostUsedJournal.value.most_used_journal.common
+    mostUsedEditorialData.value = mostUsedJournal.value.most_used_editorial.common
+    mostUsedJournalFrequency.value = mostUsedJournal.value.most_used_journal.frequency
+    mostUsedEditorialFrequency.value = mostUsedJournal.value.most_used_editorial.frequency
+
+}
+
+///////////////////////////////////////////////////
+const journalFrequencyYear = ref()
+const organizedJournalFrequency = ref([]);
+const editorialFrequencyYear = ref()
+const organizedEditorialFrequency = ref([]);
+const conferenceFrequencyYear = ref();
+const organizedConferenceFrequency = ref([]);
+let yearsArray = ref()
+let pesosJournalArray = ref()
+let pesosEditorialArray = ref()
+let pesosConferenceArray = ref()
+
+const getHistogramData = async () => {
+    const { getAllUnitTypes,dataUnitTypes } = useUnitTypes();
+    await getAllUnitTypes("/histogram_data");
+
+    journalFrequencyYear.value = dataUnitTypes.value.Data.journal_frequency
+    editorialFrequencyYear.value = dataUnitTypes.value.Data.editorial_frequency
+    conferenceFrequencyYear.value = dataUnitTypes.value.Data.conferences_frequency
+
+    console.log(journalFrequencyYear.value)
+    console.log(data.value.Data.journal_frequency)
+    const journalFrequency = JSON.parse(journalFrequencyYear.value);
+    const editorialFrequency = JSON.parse(editorialFrequencyYear.value);
+    const conferenceFrequency = JSON.parse(conferenceFrequencyYear.value); 
+
+
+// Convertir el objeto a un arreglo de [año, peso]
+    const arregloJournalFrequency = Object.entries(journalFrequency).map(([year, weight]) => ({
+        year,
+        weight
+    }));
+const arregloEditorialFrequency = Object.entries(editorialFrequency).map(([year, weight]) => ({
+        year,
+        weight
+    }));
+    const arregloConferenceFrequency = Object.entries(conferenceFrequency).map(([year, weight]) => ({
+        year,
+        weight
+    }));    
+
+// Almacena la organización en la variable reactiva
+organizedJournalFrequency.value = arregloJournalFrequency;
+organizedEditorialFrequency.value = arregloEditorialFrequency;
+organizedConferenceFrequency.value = arregloConferenceFrequency;
+
+console.log(organizedJournalFrequency.value)
+yearsArray.value = Object.values(organizedJournalFrequency.value).map(obj => obj.year);
+pesosJournalArray.value = Object.values(organizedJournalFrequency.value).map(obj => obj.weight);
+pesosEditorialArray.value = Object.values(organizedEditorialFrequency.value).map(obj => obj.weight);
+pesosConferenceArray.value = Object.values(organizedConferenceFrequency.value).map(obj => obj.weight);
+
+
+console.log(yearsArray.value);
+console.log(pesosJournalArray);
+console.log(pesosEditorialArray);
+console.log(pesosConferenceArray);
+    return dataUnitTypes.value
+
+}
+
+
+
+
+
 const setColorOptions = () => {
     documentStyle = getComputedStyle(document.documentElement);
     textColor = documentStyle.getPropertyValue('--text-color');
@@ -30,20 +139,27 @@ const setColorOptions = () => {
 
 const setChart = () => {
     barData.value = {
-        labels: ['2023', '2022', '2021', '2020', '2019', '2018', '2017','2016-2010','2010-2000','2000-1990','Before'],
+        labels: yearsArray,
         datasets: [
             {
-                label: 'Documentos',
+                label: 'Artículos',
                 backgroundColor: documentStyle.getPropertyValue('--primary-500'),
                 borderColor: documentStyle.getPropertyValue('--primary-500'),
-                data: [65, 59, 80, 81, 56, 55, 40]
+                data: pesosJournalArray
+            },
+            {
+                label: 'Libros',
+                backgroundColor: documentStyle.getPropertyValue('--primary-200'),
+                borderColor: documentStyle.getPropertyValue('--primary-200'),
+                data: pesosEditorialArray
             },
             {
                 label: 'Conferencias o congresos',
-                backgroundColor: documentStyle.getPropertyValue('--primary-200'),
+                backgroundColor: documentStyle.getPropertyValue('--primary-800'),
                 borderColor: documentStyle.getPropertyValue('--primary-200'),
-                data: [28, 48, 40, 19, 86, 27, 90]
+                data: pesosConferenceArray
             }
+            
         ]
     };
     barOptions.value = {
@@ -228,6 +344,7 @@ watch(
     () => {
         setColorOptions();
         setChart();
+        
     },
     { immediate: true }
 );
@@ -239,9 +356,47 @@ const products = ref(null);
 
 const productService = new ProductService();
 
-onMounted(() => {
-    productService.getProductsSmall().then((data) => (products.value = data));
+const data = ref({
+  "Data": {
+    "total": 27,
+    "journal_frequency": "{\"2001\":1,\"2005\":1,\"2010\":2,\"2011\":1,\"2012\":1,\"2013\":1,\"2014\":1,\"2019\":1}",
+    "journal_count": 9,
+    "editorial_frequency": "{\"2008\":1,\"2010\":1,\"2012\":1,\"2016\":2,\"2017\":2,\"2018\":1,\"2019\":1}",
+    "editorial_count": 9,
+    "conferences_frequency": "{\"2008\":1,\"2010\":1,\"2012\":1,\"2016\":2,\"2017\":2,\"2018\":1,\"2019\":1}",
+    "conferences_count": 9,
+  }
 });
+
+// Variable reactiva para almacenar la organización de journal_frequency
+
+
+// Función para organizar journal_frequency en un arreglo de años y pesos
+const organizeJournalFrequency = () => {
+    
+
+
+
+};
+
+onBeforeMount(async  () => {
+
+
+     getAllTotalReferences();
+     getMostUsedYear();
+     getMostUsedJournal();
+     getHistogramData();
+     organizeJournalFrequency();   
+     
+
+
+    
+
+   
+    
+
+});
+
 
 const formatCurrency = (value) => {
     return value.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
@@ -330,7 +485,7 @@ watch(
 
                     <div>
                         <span class="block text-500 font-medium mb-3">Bibliografía: Cantidad de literatura</span>
-                        <div class="text-900 font-medium text-xl">152</div>
+                        <div class="text-900 font-medium text-xl">{{ dataTotalReferences }} </div>
                     </div>
 
                     <div class="flex align-items-center justify-content-center bg-green-100 border-round" style="width: 2.5rem; height: 2.5rem">
@@ -348,8 +503,8 @@ watch(
             <div class="card mb-0">
                 <div class="flex justify-content-between mb-3">
                     <div>
-                        <span class="block text-500 font-medium mb-3">Citaciones utlizadas en el trabajo</span>
-                        <div class="text-900 font-medium text-xl">2.100</div>
+                        <span class="block text-500 font-medium mb-3">Año más frecuente</span>
+                        <div class="text-900 font-medium text-xl" >{{ mostUsedYearData}}</div>
                     </div>
                     <div class="flex align-items-center justify-content-center bg-green-100 border-round" style="width: 2.5rem; height: 2.5rem">
                         <i class="pi pi-bookmark text-green-500 text-xl"></i>
@@ -365,15 +520,15 @@ watch(
             <div class="card mb-0">
                 <div class="flex justify-content-between mb-3">
                     <div>
-                        <span class="block text-500 font-medium mb-3">Revistas o editoriales predominantes </span>
-                        <div class="text-900 font-medium text-xl">28</div>
+                        <span class="block text-500 font-medium mb-3">Revista más utilizada </span>
+                        <div class="text-900 font-medium text-xl">{{ mostUsedJournalData }}</div>
                     </div>
                     <div class="flex align-items-center justify-content-center bg-green-100 border-round" style="width: 2.5rem; height: 2.5rem">
-                        <i class="pi pi-inbox text-green-500 text-xl"></i>
+                        <i class="pi pi-bookmark text-green-500 text-xl"></i>
                     </div>
                 </div>
-                <span class="text-green-500 font-medium">520 </span>
-                <span class="text-500">Pendientes</span>
+                <span class="text-green-500 font-medium">{{ mostUsedJournalFrequency }} </span>
+                <span class="text-500"> Veces</span>
             </div>
         </div>
 
@@ -382,15 +537,15 @@ watch(
             <div class="card mb-0">
                 <div class="flex justify-content-between mb-3">
                     <div>
-                        <span class="block text-500 font-medium mb-3">Referencia mas usada</span>
-                        <div class="text-900 font-medium text-xl">American Journal Of Physics</div>
+                        <span class="block text-500 font-medium mb-3">Editorial mas Utilizada</span>
+                        <div class="text-900 font-medium text-xl">{{mostUsedEditorialData}}</div>
                     </div>
                     <div class="flex align-items-center justify-content-center bg-green-100 border-round" style="width: 2.5rem; height: 2.5rem">
-                        <i class="pi pi-shopping-cart text-green-500 text-xl"></i>
+                        <i class="pi pi-bookmark text-green-500 text-xl"></i>
                     </div>
                 </div>
-                <span class="text-green-500 font-medium">85 </span>
-                <span class="text-500">Citaciones</span>
+                <span class="text-green-500 font-medium"> {{mostUsedEditorialFrequency}} </span>
+                <span class="text-500"> Veces</span>
             </div>
         </div>
         <div class="col-12 xl:col-6">

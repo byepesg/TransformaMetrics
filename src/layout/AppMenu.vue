@@ -11,12 +11,12 @@ const model2 = ref([
     {
         label: 'Inicio',
 
-        items: [{ label: 'Metricas', icon: 'pi pi-fw pi-home', to: '/applayout' }]
+        items: [{ label: 'Metricas', icon: 'pi pi-fw pi-home', to: '/metricas' }]
     },
     {
         label: 'Conjunto de datos',
 
-        items: [{ label: 'Referencias usadas', icon: 'pi pi-fw pi-home', to: '/Products' }]
+        items: [{ label: 'Referencias usadas', icon: 'pi pi-fw pi-home', to: '/Datos' }]
     },
 
 ]);

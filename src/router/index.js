@@ -16,7 +16,7 @@ const router = createRouter({
             component: AppLayout,
             children: [
                 {
-                    path: '/applayout',
+                    path: '/metricas',
                     name: 'dashboard',
                     component: () => import('@/views/Dashboard.vue')
                 },
@@ -27,8 +27,8 @@ const router = createRouter({
                     component: () => import('@/views/pages/Landing.vue')
                 },
                 {
-                    path: '/Products',
-                    name: 'landing',
+                    path: '/Datos',
+                    name: 'table',
                     component: () => import('@/views/pages/product/Products/Products.vue')
                 },
             

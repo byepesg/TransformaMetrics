@@ -5,7 +5,7 @@ export async function useFetch(Endpoint, options = {}, auth = true) {
     //options['headers']['Content-Type'] = 'application/json';
     //options['headers']['Accept'] = 'application/json';
     //options['headers']['Access-Control-Allow-Origin'] = '*';
-    //options['headers']['application/vnd.github.v3.raw'] = '*';
+   // options['headers']['application/vnd.github.v3.raw'] = '*';
 
     
     
@@ -39,16 +39,16 @@ export async function useFetch(Endpoint, options = {}, auth = true) {
         if (res.ok) {
 
             data = await res.json();
-            alert("its okay")
+            //alert("its okay")
             
         } else {
             error = await res.json();
-            alert("its not okay")
+            //alert("its not okay")
         }
     } catch (e) {
         //error = e;
         //alert("Error, por favor contacte al proveedor")
-        alert("WTF")
+        alert("No encuentro la peticion")
     }
 
     return { data, error };
