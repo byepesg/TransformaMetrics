@@ -1,0 +1,70 @@
+{
+	"references": [
+		{
+			"type": "article",
+			"key": "articulo",
+			"author": "Apellido, Nombre",
+			"title": "Título del Artículo",
+			"journal": "Nombre de la Revista",
+			"year": "2020",
+			"volume": "5",
+			"number": "2",
+			"pages": "123-145",
+			"doi": "10.1234/articulo",
+			"keywords": "palabra clave1, palabra clave2"
+		},
+		{
+			"type": "book",
+			"key": "libro",
+			"author": "Apellido, Nombre",
+			"title": "Título del Libro",
+			"publisher": "Editorial",
+			"year": "2018",
+			"edition": "2nd",
+			"isbn": "978-1-1234-5678-9"
+		},
+		{
+			"type": "inProceedings",
+			"key": "conferencia",
+			"author": "Apellido, Nombre",
+			"title": "Título de la Contribución",
+			"booktitle": "Actas de la Conferencia",
+			"year": "2019",
+			"organization": "Nombre de la Conferencia",
+			"pages": "45-67"
+		},
+		{
+			"type": "techReport",
+			"key": "informetecnico",
+			"author": "Apellido, Nombre",
+			"title": "Título del Informe Técnico",
+			"institution": "Nombre de la Institución",
+			"year": "2021",
+			"number": "TR-123"
+		},
+		{
+			"type": "phdThesis",
+			"key": "tesisdoctoral",
+			"author": "Apellido, Nombre",
+			"title": "Título de la Tesis Doctoral",
+			"school": "Nombre de la Universidad",
+			"year": "2017"
+		},
+		{
+			"type": "manual",
+			"key": "manual",
+			"title": "Manual de Uso",
+			"organization": "Nombre de la Empresa",
+			"year": "2022",
+			"note": "Versión 1.0"
+		},
+		{
+			"type": "unpublished",
+			"key": "nopublicado",
+			"author": "Apellido, Nombre",
+			"title": "Título del Trabajo No Publicado",
+			"year": "2022",
+			"note": "Manuscrito no publicado"
+		}
+	]
+}
