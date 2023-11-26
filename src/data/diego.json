@@ -1,5 +1,4 @@
-{
-	"references": [
+[
 		{
 			"type": "article",
 			"key": "articulo",
@@ -67,4 +66,3 @@
 			"note": "Manuscrito no publicado"
 		}
 	]
-}
