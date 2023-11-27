@@ -40,11 +40,15 @@ const getAllTotalReferences = async () => {
 ///////////////////////////////////////////////////
 const mostUsedYear = ref();
 const mostUsedYearData = ref();
+const totalWightUsedYear = ref();
 const getMostUsedYear = async () => {
     const { getAllUnitTypes,dataUnitTypes } = useUnitTypes();
     await getAllUnitTypes("/most-used-year");
     mostUsedYear.value = dataUnitTypes.value
     mostUsedYearData.value = mostUsedYear.value.most_used_year
+    const nombreBuscado = mostUsedYearData.value;
+    const personaEncontrada = personas.find(persona => persona.nombre === nombreBuscado);
+    
     return mostUsedYearData
 
 }; 
@@ -76,7 +80,7 @@ let yearsArray = ref()
 let pesosJournalArray = ref()
 let pesosEditorialArray = ref()
 let pesosConferenceArray = ref()
-
+let weightTotalArray = ref(0)
 const getHistogramData = async () => {
     const { getAllUnitTypes,dataUnitTypes } = useUnitTypes();
     await getAllUnitTypes("/histogram_data");
@@ -113,15 +117,39 @@ organizedConferenceFrequency.value = arregloConferenceFrequency;
 
 console.log(organizedJournalFrequency.value)
 yearsArray.value = Object.values(organizedJournalFrequency.value).map(obj => obj.year);
-pesosJournalArray.value = Object.values(organizedJournalFrequency.value).map(obj => obj.weight);
-pesosEditorialArray.value = Object.values(organizedEditorialFrequency.value).map(obj => obj.weight);
-pesosConferenceArray.value = Object.values(organizedConferenceFrequency.value).map(obj => obj.weight);
-
-
+pesosJournalArray.value = Object.values(organizedJournalFrequency.value).map(obj => {
+    
+    if (obj.year === mostUsedYearData.value.toString()) {
+    console.log(obj.weight);
+    weightTotalArray.value = weightTotalArray.value + obj.weight
+  }
+  return obj.weight;
+});
+pesosEditorialArray.value = Object.values(organizedEditorialFrequency.value).map(obj => {
+    
+    
+    if (obj.year === mostUsedYearData.value.toString()) {
+      console.log(obj.weight);
+      weightTotalArray.value = weightTotalArray.value + obj.weight
+    }
+    return obj.weight;
+  });
+pesosConferenceArray.value = Object.values(organizedConferenceFrequency.value).map(obj => {
+    
+    if (obj.year === mostUsedYearData.value.toString()) {
+      console.log(obj.weight);
+      weightTotalArray.value = weightTotalArray.value + obj.weight
+    }
+    return obj.weight;
+  });
+console.log(mostUsedYearData.value)
+console.log(organizedJournalFrequency.value)
 console.log(yearsArray.value);
 console.log(pesosJournalArray);
 console.log(pesosEditorialArray);
 console.log(pesosConferenceArray);
+weightTotalArray.value = weightTotalArray.value / dataTotalReferences
+
     return dataUnitTypes.value
 
 }
@@ -503,14 +531,14 @@ watch(
             <div class="card mb-0">
                 <div class="flex justify-content-between mb-3">
                     <div>
-                        <span class="block text-500 font-medium mb-3">Año más frecuente</span>
+                        <span class="block text-500 font-medium mb-3">Año más frecuente de todo tipo</span>
                         <div class="text-900 font-medium text-xl" >{{ mostUsedYearData}}</div>
                     </div>
                     <div class="flex align-items-center justify-content-center bg-green-100 border-round" style="width: 2.5rem; height: 2.5rem">
                         <i class="pi pi-bookmark text-green-500 text-xl"></i>
                     </div>
                 </div>
-                <span class="text-green-500 font-medium">%52+ </span>
+                <span class="text-green-500 font-medium">20% </span>
                 <span class="text-500">Nacional</span>
             </div>
         </div>
