@@ -36,7 +36,7 @@ const onChangeTheme = (mode) => {
 
 const route = () => {
     
-        router.push('/applayout');
+        router.push('/upload');
     };
 </script>
 

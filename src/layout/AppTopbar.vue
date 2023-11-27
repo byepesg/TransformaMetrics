@@ -82,7 +82,12 @@ const isOutsideClicked = (event) => {
 const Exit = () => {
     localStorage.clear();
     sessionStorage.clear();
-    router.push('/auth/login');
+    router.push('/');
+};
+const Return = () => {
+    localStorage.clear();
+    sessionStorage.clear();
+    router.push('/upload');
 };
 </script>
 
@@ -92,16 +97,15 @@ const Exit = () => {
             <img :src="logoUrl" alt="logo" />
             <span>TransformaMetrics</span>
         </router-link>
-
+        <div>
+                
         <button class="p-link layout-menu-button layout-topbar-button" @click="onMenuToggle()">
             <i class="pi pi-bars"></i>
         </button>
 
-        <button class="p-link layout-topbar-menu-button layout-topbar-button" @click="onTopBarMenuButton()">
-            <i class="pi pi-ellipsis-v"></i>
-        </button>
-
+            </div>
         <div class="layout-topbar-menu" :class="topbarMenuClasses">
+            
             <div class="flex flex-wrap align-items-center justify-content-center md:justify-content-start">
                 <i class="pi pi-user mr-2"></i>
                 <p> Estudiante: Diego Rubiano</p>
@@ -113,6 +117,11 @@ const Exit = () => {
             <Button @click="Exit()" rounded outlined class="p-link layout-topbar-button">
                 <i class="pi pi-sign-out"></i>
             </Button>
+            
+            <Button @click="Return()" rounded outlined class="p-link layout-topbar-button">
+                <i class="pi pi-check"></i>
+            </Button>
+            
 
             
         </div>

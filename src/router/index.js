@@ -20,6 +20,11 @@ const router = createRouter({
                     name: 'dashboard',
                     component: () => import('@/views/Dashboard.vue')
                 },
+                {
+                    path: '/upload',
+                    name: 'upload',
+                    component: () => import('@/views/Pages/UploadBIB.vue')
+                },
 
                 {
                     path: '/landing',

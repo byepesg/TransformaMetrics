@@ -89,8 +89,8 @@ const getHistogramData = async () => {
     editorialFrequencyYear.value = dataUnitTypes.value.Data.editorial_frequency
     conferenceFrequencyYear.value = dataUnitTypes.value.Data.conferences_frequency
 
-    console.log(journalFrequencyYear.value)
-    console.log(data.value.Data.journal_frequency)
+    //console.log(journalFrequencyYear.value)
+    //console.log(data.value.Data.journal_frequency)
     const journalFrequency = JSON.parse(journalFrequencyYear.value);
     const editorialFrequency = JSON.parse(editorialFrequencyYear.value);
     const conferenceFrequency = JSON.parse(conferenceFrequencyYear.value); 
@@ -115,12 +115,12 @@ organizedJournalFrequency.value = arregloJournalFrequency;
 organizedEditorialFrequency.value = arregloEditorialFrequency;
 organizedConferenceFrequency.value = arregloConferenceFrequency;
 
-console.log(organizedJournalFrequency.value)
+//console.log(organizedJournalFrequency.value)
 yearsArray.value = Object.values(organizedJournalFrequency.value).map(obj => obj.year);
 pesosJournalArray.value = Object.values(organizedJournalFrequency.value).map(obj => {
     
     if (obj.year === mostUsedYearData.value.toString()) {
-    console.log(obj.weight);
+    //console.log(obj.weight);
     weightTotalArray.value = weightTotalArray.value + obj.weight
   }
   return obj.weight;
@@ -129,7 +129,7 @@ pesosEditorialArray.value = Object.values(organizedEditorialFrequency.value).map
     
     
     if (obj.year === mostUsedYearData.value.toString()) {
-      console.log(obj.weight);
+      //console.log(obj.weight);
       weightTotalArray.value = weightTotalArray.value + obj.weight
     }
     return obj.weight;
@@ -137,26 +137,61 @@ pesosEditorialArray.value = Object.values(organizedEditorialFrequency.value).map
 pesosConferenceArray.value = Object.values(organizedConferenceFrequency.value).map(obj => {
     
     if (obj.year === mostUsedYearData.value.toString()) {
-      console.log(obj.weight);
+      //console.log(obj.weight);
       weightTotalArray.value = weightTotalArray.value + obj.weight
     }
     return obj.weight;
   });
-console.log(mostUsedYearData.value)
-console.log(organizedJournalFrequency.value)
-console.log(yearsArray.value);
-console.log(pesosJournalArray);
-console.log(pesosEditorialArray);
-console.log(pesosConferenceArray);
+// console.log(mostUsedYearData.value)
+// console.log(organizedJournalFrequency.value)
+// console.log(yearsArray.value);
+// console.log(pesosJournalArray);
+// console.log(pesosEditorialArray);
+// console.log(pesosConferenceArray);
 weightTotalArray.value = weightTotalArray.value / dataTotalReferences
 
     return dataUnitTypes.value
 
 }
 
+///////////////////////////////////////////////////
+const pieTypesKeys = ref()
+const pieTypesValues = ref()
+const getAllPieTypes = async () => {
+    const { getAllUnitTypes,dataUnitTypes } = useUnitTypes();
+    await getAllUnitTypes("/pie-type");
+    //console.log(dataUnitTypes.value.get_pie_types)
+    // Supongamos que `obj` es el objeto que has mostrado
+    const keys = Object.keys(dataUnitTypes.value.get_pie_types[1]); // Obtener las claves
+    const values = Object.values(dataUnitTypes.value.get_pie_types[1]); // Obtener los valores
+    pieTypesKeys.value = keys
+    pieTypesValues.value = values
+    //console.log("Claves:", pieTypesKeys.value);
+    //console.log("Valores:", pieTypesValues.value);
+
+    return dataUnitTypes.value
+};
+const polarTypesKeys = ref()
+const polarTypesValues = ref()
+const getAllKeywords = async () => {
+    const { getAllUnitTypes,dataUnitTypes } = useUnitTypes();
+    await getAllUnitTypes("/polar-type");
+    console.log(dataUnitTypes.value.get_polar_types)
+    // Supongamos que `obj` es el objeto que has mostrado
+    const keys = Object.keys(dataUnitTypes.value.get_polar_types[1]); // Obtener las claves
+    const values = Object.values(dataUnitTypes.value.get_polar_types[1]); // Obtener los valores
+    polarTypesKeys.value = keys
+    polarTypesValues.value = values
+    // Agregar un nuevo elemento al final
+    polarTypesValues.value.push(4);
+    polarTypesValues.value.push(7);
+    console.log("Claves:", polarTypesKeys.value);
+    console.log("Valores:", polarTypesValues.value);
+    
 
 
-
+    return dataUnitTypes.value
+};
 
 const setColorOptions = () => {
     documentStyle = getComputedStyle(document.documentElement);
@@ -224,10 +259,10 @@ const setChart = () => {
     };
 
     pieData.value = {
-        labels: ['A', 'B', 'C'],
+        labels: pieTypesKeys,
         datasets: [
             {
-                data: [540, 325, 702],
+                data: pieTypesValues,
                 backgroundColor: [documentStyle.getPropertyValue('--indigo-500'), documentStyle.getPropertyValue('--purple-500'), documentStyle.getPropertyValue('--teal-500')],
                 hoverBackgroundColor: [documentStyle.getPropertyValue('--indigo-400'), documentStyle.getPropertyValue('--purple-400'), documentStyle.getPropertyValue('--teal-400')]
             }
@@ -300,12 +335,12 @@ const setChart = () => {
     polarData.value = {
         datasets: [
             {
-                data: [11, 16, 7, 3],
+                data:  polarTypesValues,
                 backgroundColor: [documentStyle.getPropertyValue('--indigo-500'), documentStyle.getPropertyValue('--purple-500'), documentStyle.getPropertyValue('--teal-500'), documentStyle.getPropertyValue('--orange-500')],
                 label: 'My dataset'
             }
         ],
-        labels: ['Local', 'Regional', 'Nacional', 'Internacional']
+        labels:  polarTypesKeys 
     };
 
     polarOptions.value = {
@@ -414,7 +449,9 @@ onBeforeMount(async  () => {
      getMostUsedYear();
      getMostUsedJournal();
      getHistogramData();
-     organizeJournalFrequency();   
+     organizeJournalFrequency(); 
+    getAllPieTypes();  
+    getAllKeywords();
      
 
 
@@ -523,7 +560,7 @@ watch(
                 </div>
 
                 <span class="text-green-500 font-medium">50 </span>
-                <span class="text-500">En uso referenciado</span>
+                <span class="text-500">Valor beta</span>
             </div>
         </div>
 
@@ -539,7 +576,7 @@ watch(
                     </div>
                 </div>
                 <span class="text-green-500 font-medium">20% </span>
-                <span class="text-500">Nacional</span>
+                <span class="text-500">Valor beta</span>
             </div>
         </div>
 
@@ -584,7 +621,7 @@ watch(
         </div>
         <div class="col-12 xl:col-6">
             <div class="card flex flex-column align-items-center">
-                <h5 class="text-left w-full">Cantidad de Autores</h5>
+                <h5 class="text-left w-full">Tipos de referencias</h5>
                 <Chart type="pie" :data="pieData" :options="pieOptions"></Chart>
             </div>
         </div>
@@ -596,17 +633,18 @@ watch(
             </div>
         </div>
 
-        <div class="col-12 xl:col-6">
-            <div class="card">
-                <h5>Evolución con version anterior</h5>
-                <Chart type="line" :data="lineData" :options="lineOptions"></Chart>
-            </div>
-        </div>
+        
 
         <div class="col-12 xl:col-6">
             <div class="card flex flex-column align-items-center">
                 <h5 class="text-left w-full">Estado del arte</h5>
                 <Chart type="polarArea" :data="polarData" :options="polarOptions"></Chart>
+            </div>
+        </div>
+        <div class="col-12 xl:col-6">
+            <div class="card">
+                <h5>Evolución con version anterior</h5>
+                <Chart type="line" :data="lineData" :options="lineOptions"></Chart>
             </div>
         </div>
         <div class="col-12 xl:col-6">
