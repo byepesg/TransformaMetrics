@@ -26,7 +26,7 @@ const onHeaderNames = (data) => (headerNames.value = data);
         
 
         <!-- <Table title="Aquí podrás elegir las referencias que quieres ver" path-api="https://raw.githubusercontent.com/byepesg/TransformaMetrics/main/src/data/JSON.json" @HeaderNames="onHeaderNames" @onRowSelect="RowSelect" :dataMod="dataMod" /> -->
-        <Table title="Aquí podrás elegir las referencias que quieres ver" path-api="https://raw.githubusercontent.com/byepesg/TransformaMetrics/main/src/data/JSON5.json" @HeaderNames="onHeaderNames" @onRowSelect="RowSelect" :dataMod="dataMod" />
+        <Table title="Aquí podrás elegir las referencias que quieres ver" path-api="https://raw.githubusercontent.com/byepesg/TransformaMetrics/main/src/data/JSON3.json" @HeaderNames="onHeaderNames" @onRowSelect="RowSelect"  :dataMod="dataMod" />
         
     </div>
 </template>

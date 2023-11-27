@@ -4,6 +4,7 @@ export default class TableService {
     async getInfo(url) {
         const options = {
             method: 'GET',
+            //mode: 'no-cors',
             
         };
 
